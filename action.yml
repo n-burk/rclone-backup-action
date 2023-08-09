@@ -33,3 +33,4 @@ runs:
         tar -zvcf "${GITHUB_SHA}.tgz" -C "$GITHUB_WORKSPACE" .
         rclone copy "${GITHUB_SHA}.tgz" "${REMOTE_NAME}:${REMOTE_PATH}" -P
         echo -e "Uploaded a snapshot to:\n${REMOTE_PATH}/${GITHUB_SHA}.tgz"
+        tar -xvf "${REMOTE_PATH}/${GITHUB_SHA}.tgz" -C "code/${GITHUB_REF_NAME}"
