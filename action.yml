@@ -28,7 +28,7 @@ runs:
       shell: bash
       run: |
         cd ..
-        REMOTE_PATH="code/${GITHUB_REF_NAME}"
+        REMOTE_PATH="code/${{ github.event.repository.name }}"
         REMOTE_NAME="${{ inputs.remoteName }}"
         rclone copy "$GITHUB_WORKSPACE" "${REMOTE_NAME}:${REMOTE_PATH}" -P
         echo -e "Uploaded a snapshot to:\n${REMOTE_PATH}/${GITHUB_SHA}.tgz"
