@@ -38,10 +38,11 @@ jobs:
       - name: 'Create and upload snapshot'
         env:
           RCLONE_REMOTE_CONFIG: "${{ secrets.RCLONE_REMOTE_CONFIG }}"
-        uses: Alyetama/rclone-backup-action@main
+        uses: n-burk/rclone-backup-action@main
         with:
           config: "$RCLONE_REMOTE_CONFIG"
+          remotePathPrefix : 'REPLACE_WITH_YOUR_REMOTE_FOLDER_ROOT'
           remoteName: 'REPLACE_WITH_YOUR_REMOTE_NAME'
 ```
 
-**Don't forget to replace `REPLACE_WITH_YOUR_REMOTE_NAME` with your remote name!**
+**Don't forget to replace `REPLACE_WITH_YOUR_REMOTE_FOLDER_ROOT` and `REPLACE_WITH_YOUR_REMOTE_NAME` with your remote path & name!**
